@@ -5,8 +5,7 @@ const CoffeeCard = ({ coffee, handleRemainingItems }) => {
     const { _id, name, quantity, supplier, taste, category, details, photoURL } = coffee;
 
     const handleDelete = id => {
-        console.log(id);
-
+        // console.log(id);
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -25,13 +24,13 @@ const CoffeeCard = ({ coffee, handleRemainingItems }) => {
                         // console.log(data);
                         if (data.deletedCount > 0) {
                             handleRemainingItems(_id)
+                            Swal.fire(
+                                'Deleted!',
+                                'Your coffee has been deleted.',
+                                'success'
+                            )
                         }
                     })
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
             }
         })
 
